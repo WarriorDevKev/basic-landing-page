@@ -1,62 +1,65 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
+/** 
+* * Nav Menu
 */
+const navBarEl = document.getElementById("navbar__list"); // <unordered list> element located in <nav> element located in <header> element
+const getSections = document.querySelectorAll("section");  // <section> element in html file
 
 /**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
-*/
+ * ! Helper Functions
+ */
+
+// Create Nav Menu Links
+const navMenuLinks = (listItem) => {
+  return `<a class="menu__link" href="#${listItem.id}">${listItem.dataset.nav}</a>`;
+};
+
+// Viewport Parameters
+const viewPort = (section) => {
+  const forBoundingClient = section.getBoundingClientRect();
+  return (
+    forBoundingClient.top >= -200 && forBoundingClient.bottom <= (window.innerHeight || document.elementFromPoint.clientHeight) + 200
+  );
+};
 
 /**
- * Define Global Variables
- * 
-*/
+ * ! Main Functions
+ */
 
+// Create Nav Bar
+const navBar = () => {
+  const navMenu = Array.from(getSections).map(navMenuLinks);
+  navBarEl.innerHTML = navMenu.join("");
+  };
+  navBar();
 
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
+// Link Scroll Feature
+const allowScroll = (event) => {
+  event.preventDefault();
+  const targetId = event.target.getAttribute("href");
+  const targetSection = document.querySelector(targetId);
+  targetSection.scrollIntoView({ behavior: "smooth" });
+};
 
+// Active Link and Section 
+const navLinks = document.querySelectorAll(".menu__link");
+navLinks.forEach((link) => {
+  link.addEventListener('click', allowScroll);
+});
 
+const setActiveClass = () => {
+  navLinks.forEach((link) => {
+    const targetId = link.getAttribute("href");
+    const targetSection = document.querySelector(targetId);
 
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
+    if (viewPort(targetSection)) {
+      link.classList.add("active");
+      targetSection.classList.add("active__main");
+    } else {
+      link.classList.remove("active");
+      targetSection.classList.remove("active__main");
+    }
+  });
+};
 
-// build the nav
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
+window.addEventListener("scroll", setActiveClass);
 
