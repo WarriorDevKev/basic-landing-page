@@ -6,7 +6,7 @@
 * [View Project](#electric_plug-view-project)
 * [How_to_Contribute](#pen-how-to-contribute)
 * [Resources](#books)
-* [Preview](#laptop-preview)
+* [Preview](#computer-preview)
 * [License](#ballot_box_with_check-license)
 
 
@@ -27,7 +27,7 @@ This repo is avaiable to be forked!
 ## :books: Resources
 Udacity classroom module, library books and their access to online learning academys.  YouTube videos, Session Leads and Self-Initiated Peer Study Sessions.
 
-## :laptop: Preview
+## :computer: Preview
 Accesibility Results: <img src="assets/screenshot.png"/>
 
 ## :ballot_box_with_check: License
