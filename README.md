@@ -28,7 +28,7 @@ This repo is avaiable to be forked!
 Udacity classroom module, library books and their access to online learning academys.  YouTube videos, Session Leads and Self-Initiated Peer Study Sessions.
 
 ## :computer: Preview
-Accesibility Results: <img src="assets/screenshot.png"/>
+Have a sneak peek 😉<img src="assets/screenshot.png"/>
 
 ## :ballot_box_with_check: License
 
